@@ -39,7 +39,7 @@ class SignUp extends Component {
         <Redirect to="/signin" />
       );
     }
-    
+
     return (
       <form onSubmit={this.onSubmit}>
         <div>
