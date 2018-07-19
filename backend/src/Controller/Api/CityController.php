@@ -27,10 +27,9 @@ class CityController extends Controller
      */
     public function index(Request $request)
     {
-        $cities = $this->cityRepository->findBy([
-          'user' => 
-        ]);
+        $cities = $this->cityRepository->findAll();
         return $this->json([
+          'cities' => $cities
         ]);
     }
 }

@@ -31,7 +31,7 @@ class User implements UserInterface, \Serializable
     private $plainPassword;
 
     /**
-    * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="users")
+    * @ORM\ManyToMany(targetEntity="App\Entity\City", inversedBy="users")
     * @ORM\JoinTable(name="cities_users",
     *       joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
     *       inverseJoinColumns={@ORM\JoinColumn(name="city_id", referencedColumnName="id")})

@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CityRepository")
  */
-class City
+class City implements \JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -83,5 +83,14 @@ class City
     public function users()
     {
         return $this->users;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'openweather_id' => $this->openweather_id
+        ];
     }
 }
