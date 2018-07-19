@@ -34,8 +34,6 @@ class App extends Fixture
           $user, '12341234'
         ));
 
-        $this->addReference('email_example', $user);
-
         $manager->persist($user);
         $manager->flush();
     }
@@ -46,7 +44,6 @@ class App extends Fixture
           $city = new City();
           $city->setName('City '.$i);
           $city->setOpenweatherId('OID'.$i);
-          $city->setUser($this->getReference('email_example'));
 
           $manager->persist($city);
         }

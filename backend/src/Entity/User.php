@@ -31,7 +31,10 @@ class User implements UserInterface, \Serializable
     private $plainPassword;
 
     /**
-    * @ORM\OneToMany(targetEntity="App\Entity\City", mappedBy="user")
+    * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="users")
+    * @ORM\JoinTable(name="cities_users",
+    *       joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+    *       inverseJoinColumns={@ORM\JoinColumn(name="city_id", referencedColumnName="id")})
     */
     private $cities;
 
@@ -69,9 +72,21 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
+    /**
+    * @return Collection
+    */
     public function getCities()
     {
         return $this->cities;
+    }
+
+    public function addCity(City $city)
+    {
+        if ($this->cities->contains($city)) {
+          return;
+        }
+
+        $this->cities->add($city);
     }
 
     public function getPlainPassword()
