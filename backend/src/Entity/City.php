@@ -28,10 +28,9 @@ class City
     private $openweather_id;
 
     /**
-    * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="cities")
-    * @ORM\JoinColumn()
+    * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="cities")
     */
-    private $user;
+    private $users;
 
     /**
     * @ORM\OneToMany(targetEntity="App\Entity\Forecast", mappedBy="city")
@@ -41,6 +40,7 @@ class City
     public function __construct()
     {
         $this->forecasts = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId()
@@ -77,8 +77,11 @@ class City
         return $this->forecasts;
     }
 
-    public function setUser($user): void
+    /**
+    * @return Collection
+    */
+    public function users()
     {
-        $this->user = $user;
+        return $this->users;
     }
 }
