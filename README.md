@@ -51,22 +51,3 @@ Run dev server
 ```bash
 yarn start
 ```
-
-
-### What would you do differently if you had more time?
-
-- Would have used redux to deal with data in the Frontend;
-- Add proper authentication logic;
-- Add proper CSS styling;
-- Add tests;
-
-### With which parts of the application are you satisfied?
-
-- I like the code organization (components, styles, utils, etc.).
-
-### Which parts would need improvement?
-
-- Frontend Server for production;
-- Add more functionality on both Frontend and Backend;
-- Please see reply to 'What would you do differently if you had more time?' for
-  more.
